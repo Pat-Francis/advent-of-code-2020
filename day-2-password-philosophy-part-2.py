@@ -9,4 +9,6 @@
 # How many passwords are valid according to the new interpretation of the policies?
 import re
 
-lines = [re.split('[-\: ]', l.strip()) for l in open('day-2-input.txt','r')]
+lines = [re.split('[-: ]', l.strip()) for l in open('day-2-input.txt','r')]
+newLines = len([l for l in lines if (l[-1][int(l[0]) - 1] == l[2]) is not (l[-1][int(l[1]) - 1] == l[2])])
+print(newLines)

@@ -8,3 +8,4 @@ Advent of Code 2020
 --- Day 3: Toboggan Trajectory --- Part 2 : Completed! Answer is 736527114.  
 --- Day 4: Passport Processing --- Part 1 : Completed! Answer is 222.  
 --- Day 4: Passport Processing --- Part 2 : Completed! Answer is 140.   
+--- Day 5: Binary Boarding --- Part 1 : In Progres...  

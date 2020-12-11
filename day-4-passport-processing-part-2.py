@@ -65,10 +65,42 @@
 # Count the number of valid passports - those that have all required fields and valid values. Continue to treat cid as optional. In your batch file, how many passports are valid?
 import re
 
-fields = {'byr':1920 <= int() <= 2002, 'iyr':, 'eyr', 'hgt', 'hcl', 'ecl', 'pid'}  # 'cid' not included as it's optional
+fields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']  # 'cid' not included as it's optional
 passports = re.split('\n\n',open('day-4-input.txt','r').read())
-passports = [l.replace('\n', ' ') for l in passports]
-passports = [re.split(' ', l) for l in passports]
-#passports = {{re.split(':', l)[0]:re.split(':', l)[1]} for l in passports}
+passports = [l.replace('\n', ' ').split(' ') for l in passports]
 
-print(passports)
+passDict = {}
+passDictList = []
+
+for p in range(len(passports)):
+    for f in range(len(passports[p])):
+        #print([p][f])
+        passDict[passports[p][f].split(':')[0]] = passports[p][f].split(':')[1]
+    passDictList.append(passDict.copy())
+    passDict = {}
+
+validPass = 0
+for p in passDictList:
+    valid_counter = 0
+    if all(keys in p for keys in fields):
+        if (len(p['byr']) == 4) and (1920 <= int(p['byr']) <= 2002):
+            valid_counter += 1
+        if (len(p['iyr']) == 4) and (2010 <= int(p['iyr']) <= 2020):
+            valid_counter += 1
+        if (len(p['eyr']) == 4) and (2020 <= int(p['eyr']) <= 2030):
+            valid_counter += 1
+        if ('cm' in p['hgt']) and (150 <= int(p['hgt'][0:-2]) <= 193):
+            valid_counter += 1
+        elif ('in' in p['hgt']) and (59 <= int(p['hgt'][0:-2]) <= 76):
+            valid_counter += 1
+        if re.match('#(?:[0-9a-f]{6})', p['hcl']):
+            valid_counter += 1
+        if p['ecl'] in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']:
+            valid_counter += 1
+        if re.match(r'^\d{9}$', p['pid']):
+            valid_counter += 1
+    
+    if valid_counter == 7:
+        validPass += 1
+
+print(validPass)

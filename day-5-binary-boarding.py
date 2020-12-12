@@ -50,7 +50,6 @@ for board in seating:
             else:
                 row_end = row_end - (row_end - row_begin)/2
         else:
-            #rows[0] = int(rows[0]) + int((rows[1] - rows[0])/2)
             if ((row_begin + row_end - row_begin)/2) %1 != 0:
                 row_begin += (row_end - row_begin)/2 + 0.5
             else:

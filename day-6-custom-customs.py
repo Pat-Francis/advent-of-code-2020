@@ -37,8 +37,8 @@
 
 import re
 
-customs = re.split('\n\n',open('day-6-input.txt','r').read())
-customs = [l.replace('\n', '') for l in customs]
+source = re.split('\n\n',open('day-6-input.txt','r').read())
+customs = [l.replace('\n', '') for l in source]
 
 totalCount = 0
 
@@ -76,3 +76,14 @@ print(totalCount)
 #     In the fifth group, everyone (all 1 person) answered "yes" to 1 question, b.
 # In this example, the sum of these counts is 3 + 0 + 1 + 1 + 1 = 6.
 # For each group, count the number of questions to which everyone answered "yes". What is the sum of those counts?
+from collections import Counter
+allCount = 0
+customs2 = [re.split('\n', l) for l in source]
+
+for l in customs2:
+    fullStr = ''.join(l)
+    for letter in set(fullStr):
+        if fullStr.count(letter) == len(l):
+            allCount += 1
+
+print(allCount)

@@ -25,3 +25,21 @@
 
 # So, in this example, the number of bag colors that can eventually contain at least one shiny gold bag is 4.
 # How many bag colors can eventually contain at least one shiny gold bag? (The list of rules is quite long; make sure you get all of it.)
+import re
+
+source = re.split('\n',open('day-7-input.txt','r').read())
+
+outerBag = re.compile('^([\\w ]*) bags contain ')
+innerBag = re.compile('(\\d{1,}) ([\\w ]*) bag(?:s)?')
+
+rules = {}
+
+for rule in source:
+    outer = outerBag.findall(rule)[0]
+
+    rules[outer] = {}
+
+    inner = innerBag.findall(rule)
+    for bag in inner:
+        rules[outer][bag[1]] = int(bag[0])
+print(rules)

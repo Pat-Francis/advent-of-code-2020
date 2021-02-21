@@ -33,6 +33,7 @@ outerBag = re.compile('^([\\w ]*) bags contain ')
 innerBag = re.compile('(\\d{1,}) ([\\w ]*) bag(?:s)?')
 
 rules = {}
+containsBag = []
 
 for rule in source:
     outer = outerBag.findall(rule)[0]
@@ -42,4 +43,12 @@ for rule in source:
     inner = innerBag.findall(rule)
     for bag in inner:
         rules[outer][bag[1]] = int(bag[0])
-print(rules)
+
+def star1(input, bag):
+    for k, v in input.items():
+        if bag in v:
+            containsBag.append(k)
+            star1(input, k)    #calls the function using the outer bag as an input as it might be contained in another bag
+    print(len(set(containsBag)))
+
+star1(rules,'shiny gold')

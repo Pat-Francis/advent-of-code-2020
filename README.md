@@ -12,5 +12,6 @@ Advent of Code 2020
 --- Day 5: Binary Boarding --- Part 2 : Completed! Answer is 657.  
 --- Day 6: Custom Customs --- Part 1 : Completed! Answer is 6504.  
 --- Day 6: Custom Customs --- Part 2 : Completed! Answer is 3351.  
---- Day 7: Handy Haversacks --- Part 1 : Completed! Answer is 148.
---- Day 7: Handy Haversacks --- Part 2 : In Progress...
+--- Day 7: Handy Haversacks --- Part 1 : Completed! Answer is 148.  
+--- Day 7: Handy Haversacks --- Part 2 : Completed! Answer is 24,867.  
+--- Day 8: Handheld Halting --- Par 1 : In Progress...  

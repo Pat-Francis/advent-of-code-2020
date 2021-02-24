@@ -37,3 +37,17 @@
 # Immediately before the program would run an instruction a second time, the value in the accumulator is 5.
 # Run your copy of the boot code. Immediately before any instruction is executed a second time, what value is in the accumulator?
 
+import re
+
+source = re.split('\n',open('day-8-input.txt','r').read())
+source = [re.split(' (\-|\+)', rule) for rule in source]  #split each seperated instruction into it's component parts e.g. 'nop +0' becomes ['nop', '+', '0']
+
+accumulator = 0
+items = []
+current = 0
+
+def star1(input):
+    
+
+star1(source)
+print(source)

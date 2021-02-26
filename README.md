@@ -14,4 +14,5 @@ Advent of Code 2020
 --- Day 6: Custom Customs --- Part 2 : Completed! Answer is 3351.  
 --- Day 7: Handy Haversacks --- Part 1 : Completed! Answer is 148.  
 --- Day 7: Handy Haversacks --- Part 2 : Completed! Answer is 24,867.  
---- Day 8: Handheld Halting --- Part 1 : In Progress...  
+--- Day 8: Handheld Halting --- Part 1 : Completed! Answer is 2034.  
+--- Day 8: Handheld Halting --- Part 2 : In progress...  
